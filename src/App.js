@@ -11,6 +11,7 @@ import Dashboard from './user/Dashboard';
 import DashboardSeller from './user/DashboardSeller'
 import NewItem from './items/NewItem'
 import StripeCallback from './stripe/StripeCallback'
+import EditItem from './items/EditItem'
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ function App() {
         <PrivateRoute exact path='/dashboard/seller' component={DashboardSeller}/>
         <PrivateRoute exact path='/items/new' component={NewItem}/>
         <PrivateRoute exact path='/stripe/callback' component={StripeCallback}/>
+        <PrivateRoute exact path='/item/edit/:itemId' component={EditItem}/>
       </Switch>
     </BrowserRouter>
 

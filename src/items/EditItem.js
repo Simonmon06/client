@@ -1,29 +1,39 @@
-
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
-import ItemCreateForm from '../components/forms/ItemCreateForm'
-import { createItem } from '../actions/item'
-// import AlgoliaPlaces from 'algolia-places-react'
-//  try to use react-google-places-autocomplete if still have time
-const NewItem = () => {
+import {DatePicker, Select} from 'antd'
+import { readItem, updateItem } from '../actions/item'
+import ItemEditForm from '../components/forms/ItemEditForm'
+
+const {Option} = Select
+
+const EditItem = ({match}) =>{
     const {auth} = useSelector(state => ({...state}))
     const {token} = auth
+    const [image, setImage] = useState('')
     const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
     const [values, setValues] = useState({
         title: '',
         content: '',
         location: '',
-        image: '',
         price: '',
         from: '',
         to: '',
         condition: '',
     })
-    const {title, content, location, image, price, from, to, condition} = values
-    const handleSubmit = async (event) =>{
-        event.preventDefault();
-        console.log(values)
+    const {title, content, location, price, from, to, condition} = values
+    const loadSellerItem = async() =>{
+        let res = await readItem(match.params.itemId)
+        // console.log(res)
+        setValues({...values, ...res.data})
+        setPreview(`${process.env.REACT_APP_API}/item/image/${res.data._id}`)
+    }
+    useEffect(() => {
+        loadSellerItem()
+    }, [])
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
         let itemData = new FormData()
         itemData.append('title', title)
         itemData.append('content', content)
@@ -35,12 +45,11 @@ const NewItem = () => {
         itemData.append('condition', condition)
         image && itemData.append('image', image)
 
-
         try{
-            let res = await createItem(token, itemData)
-            console.log('Item Edit Res', res)
-            toast.success(`${res.data.title} New Item uploaded`)
-
+            // whats different from the createForm we need to send the itemId from the url as well
+            let res = await updateItem(token, itemData, match.params.itemId)
+            console.log('Item create Res', res)
+            toast.success(`${res.data.title} is updated`)
         }catch(err){
             console.log(err)
             toast.error(err.response.data)
@@ -50,23 +59,23 @@ const NewItem = () => {
         
         // console.log(event.target.files[0])
         setPreview(URL.createObjectURL(event.target.files[0]))
-        setValues({...values, image: event.target.files[0]})
+        setImage(event.target.files[0])
     }
     const handleChange = (event) => {
         setValues({...values,[event.target.name]: event.target.value })
 
     }
-    return (
+    return(
         <>
             <div className="container-fluid bg-secondary p-5 text-center">
-            <h2> Add Item</h2>
+                <h2> Edit Item</h2>
             </div>
-
+            
             <div className="container-fluid">
                 <div className='row'>
                     <div className='col-md-10'>
                         <br/>
-                        <ItemCreateForm 
+                        <ItemEditForm 
                             values= {values}
                             setValues={setValues}
                             handleChange={handleChange}
@@ -80,10 +89,8 @@ const NewItem = () => {
                     </div>
                 </div>
             </div>
-
         </>
-
     )
 }
 
-export default NewItem;
+export default EditItem
