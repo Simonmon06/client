@@ -54,3 +54,7 @@ export const getUserOrders= async (token) =>{
         }
     })
 }
+
+export const searchItems = async (query) =>{
+    return await axios.post(`${process.env.REACT_APP_API}/search-items`, query)
+}

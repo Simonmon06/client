@@ -3,6 +3,8 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import TopNav from './components/TopNav'
 import PrivateRoute from './components/PrivateRoute'
+import SearchResult from './components/SearchResult'
+
 
 import Home from "./sale/Home";
 import Login from './auth/Login'
@@ -34,7 +36,7 @@ function App() {
         <Route exact path='/item/:itemId' component={ViewItem}/>
         <PrivateRoute exact path='/stripe/success/:itemId' component={StripeSuccess}/>
         <PrivateRoute exact path='/stripe/cancel' component={StripeCancel}/>
-
+        <Route exact path='/search-result' component={SearchResult}/>
       </Switch>
     </BrowserRouter>
 
