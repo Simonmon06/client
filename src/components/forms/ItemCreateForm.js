@@ -1,11 +1,11 @@
 
-import {DatePicker} from 'antd'
+import {DatePicker, Select} from 'antd'
 import moment from 'moment'
-// import AlgoliaPlaces from 'algolia-places-react'
 //  try to use react-google-places-autocomplete if still have time
+const {Option} = Select;
 const ItemCreateForm = (props) => {
     const {values, setValues, handleChange, handleImageChange, handleSubmit} = props
-    const {title, content, price, condition, location} = values;
+    const {title, content, price, location} = values;
     return (
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
@@ -36,14 +36,22 @@ const ItemCreateForm = (props) => {
                     className='form-control m-2' 
                     value={content}
                 />
-                <input 
+                {/* <input 
                     type='text' 
                     name= 'condition' 
                     onChange={handleChange} 
                     placeholder='Condition (Opened or New)' 
                     className='form-control m-2' 
                     value={condition}
-                />
+                /> */}
+                <Select onChange={value => setValues({...values, condition: value})} 
+                        className='w-100 m-2' 
+                        size='large'
+                        placeholder='Opened/Not Opened'
+                        >
+                    <Option value="Opened">Opened</Option>
+                    <Option value="Not Opened">Not Opened</Option>
+                </Select>
                 <input 
                     type='number' 
                     name= 'price' 
@@ -52,7 +60,17 @@ const ItemCreateForm = (props) => {
                     className='form-control m-2' 
                     value={price}
                 />
-
+                <Select onChange={value => setValues({...values, size: value})} 
+                        className='w-100 m-2' 
+                        size='large'
+                        placeholder='Size'
+                        >
+                    <Option key={1} value="Perfect Grade 1/60">Perfect Grade 1/60</Option>
+                    <Option key={2} value="Master Grade 1/100">Master Grade 1/100</Option>
+                    <Option key={3} value="Real Grade 1/144">Real Grade 1/144</Option>
+                    <Option key={4} value="High Grade 1/144">High Grade 1/144</Option>
+                    <Option key={5} value="BB/SD">BB/SD</Option>
+                </Select>
                 <input 
                     type='text' 
                     name= 'location' 
@@ -63,16 +81,10 @@ const ItemCreateForm = (props) => {
                 />
             </div>
             <DatePicker 
-                placeholder='From date' 
+                placeholder='Purchase Date' 
                 className='form-control m-2'
-                onChange={(date, dateString) => setValues({...values, from: dateString })}
-                disabledDate={current => {return current && current.valueOf() < moment().subtract(1, 'days')}}
-            />
-            <DatePicker 
-                placeholder='To date' 
-                className='form-control m-2'
-                onChange={(date, dateString) => setValues({...values, to: dateString })}
-                disabledDate={current => {return current && current.valueOf() < moment().subtract(1, 'days')}}
+                onChange={(date, dateString) => setValues({...values, purchaseDate: dateString })}
+                disabledDate={(current) => current && current.valueOf() > moment().subtract(0, "days")}
             />
             <button className='btn btn-outline-primary m-2'>Save</button>
         </form>

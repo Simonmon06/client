@@ -6,7 +6,8 @@ import {useEffect, useState} from 'react'
 import { useSelector } from "react-redux";
 import {Card, Avatar, Badge} from 'antd'
 import moment from 'moment'
-import {getAccountBalance, currencyFormatter, payoutSetting} from '../actions/stripe'
+import {getAccountBalance, payoutSetting} from '../actions/stripe'
+import { currencyFormatter } from '../actions/utils';
 import {SettingOutlined} from '@ant-design/icons'
 import {toast} from 'react-toastify'
 

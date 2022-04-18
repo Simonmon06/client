@@ -12,6 +12,11 @@ import DashboardSeller from './user/DashboardSeller'
 import NewItem from './items/NewItem'
 import StripeCallback from './stripe/StripeCallback'
 import EditItem from './items/EditItem'
+import ViewItem from './items/ViewItem'
+
+import StripeSuccess from './stripe/StripeSuccess'
+import StripeCancel from './stripe/StripeCancel'
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +31,10 @@ function App() {
         <PrivateRoute exact path='/items/new' component={NewItem}/>
         <PrivateRoute exact path='/stripe/callback' component={StripeCallback}/>
         <PrivateRoute exact path='/item/edit/:itemId' component={EditItem}/>
+        <Route exact path='/item/:itemId' component={ViewItem}/>
+        <PrivateRoute exact path='/stripe/success/:itemId' component={StripeSuccess}/>
+        <PrivateRoute exact path='/stripe/cancel' component={StripeCancel}/>
+
       </Switch>
     </BrowserRouter>
 

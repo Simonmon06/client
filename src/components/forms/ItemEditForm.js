@@ -1,9 +1,10 @@
-import {DatePicker} from 'antd'
+import {DatePicker, Select} from 'antd'
 import moment from 'moment'
-
+const {Option} = Select;
 const ItemEditForm = (props) => {
     const {values, setValues, handleChange, handleImageChange, handleSubmit} = props
-    const {title, content, price, condition, location, from, to} = values;
+    const {title, content, price, location, purchaseDate, condition} = values;
+    console.log(condition)
     return (
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
@@ -34,14 +35,16 @@ const ItemEditForm = (props) => {
                     className='form-control m-2' 
                     value={content}
                 />
-                <input 
-                    type='text' 
-                    name= 'condition' 
-                    onChange={handleChange} 
-                    placeholder='Condition (Opened or New)' 
-                    className='form-control m-2' 
-                    value={condition}
-                />
+                <Select onChange={value => setValues({...values, condition: value})} 
+                        className='w-100 m-2' 
+                        size='large'
+                        value={condition}
+                        placeholder='Opened/Not Opened'
+                        >
+                    <Option value="Opened">Opened</Option>
+                    <Option value="Not Opened">Not Opened</Option>
+                </Select>
+
                 <input 
                     type='number' 
                     name= 'price' 
@@ -60,26 +63,15 @@ const ItemEditForm = (props) => {
                     value={location}
                 />
             </div>
-            {from && (
+            {purchaseDate && (
                 <DatePicker 
-                    defaultValue={moment(from, "YYYY-MM-DD")}
-                    placeholder='From date' 
+                    defaultValue={moment(purchaseDate, "YYYY-MM-DD")}
+                    placeholder='Purchase Date' 
                     className='form-control m-2'
-                    onChange={(date, dateString) => setValues({...values, from: dateString })}
-                    disabledDate={current => {return current && current.valueOf() < moment().subtract(1, 'days')}}
+                    onChange={(date, dateString) => setValues({...values, purchaseDate: dateString })}
+                    disabledDate={(current) => current && current.valueOf() > moment().subtract(0, "days")}
                 />
-            )
-            }
-
-            {to && (
-                <DatePicker 
-                    defaultValue={moment(to, "YYYY-MM-DD")}
-                    placeholder='To date' 
-                    className='form-control m-2'
-                    onChange={(date, dateString) => setValues({...values, to: dateString })}
-                    disabledDate={current => {return current && current.valueOf() < moment().subtract(1, 'days')}}
-                />
-            )
+                )
             }
 
 

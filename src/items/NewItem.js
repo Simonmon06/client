@@ -15,12 +15,12 @@ const NewItem = () => {
         content: '',
         location: '',
         image: '',
+        size: '',
         price: '',
-        from: '',
-        to: '',
+        purchaseDate: '',
         condition: '',
     })
-    const {title, content, location, image, price, from, to, condition} = values
+    const {title, content, location, image,size, price, purchaseDate, condition} = values
     const handleSubmit = async (event) =>{
         event.preventDefault();
         console.log(values)
@@ -28,11 +28,12 @@ const NewItem = () => {
         itemData.append('title', title)
         itemData.append('content', content)
         itemData.append('location', location)
+        itemData.append('size', size)
         itemData.append('title', title)
         itemData.append('price', price)
-        itemData.append('from', from)
-        itemData.append('to', to)
+        itemData.append('purchaseDate', purchaseDate)
         itemData.append('condition', condition)
+
         image && itemData.append('image', image)
 
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+// post method 3 para 1. url, 2. data(optional) 3. header
 export const createConnectAccount = async(token) =>{
     return await axios.post(`${process.env.REACT_APP_API}/create-connect-account`, {}, {
         headers: {
@@ -25,16 +25,26 @@ export const getAccountBalance = async(token) =>{
     })
 }
 
-export const currencyFormatter= (data)=>{
-    return (data.amount).toLocaleString(data.currency,{
-        style: 'currency',
-        currency: data.currency
-    })
-}
 
 
 export const payoutSetting= async (token)=>{
     return await axios.post(`${process.env.REACT_APP_API}/payout-setting`, {}, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+export const getSessionId= async (token, itemId)=>{
+    return await axios.post(`${process.env.REACT_APP_API}/stripe-session-id`, {itemId}, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+export const stripeSuccess= async (token, itemId)=>{
+    return await axios.post(`${process.env.REACT_APP_API}/stripe-success`, {itemId}, {
         headers:{
             Authorization: `Bearer ${token}`
         }

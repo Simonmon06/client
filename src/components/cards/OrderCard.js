@@ -1,10 +1,12 @@
 import { currencyFormatter } from '../../actions/utils'
-import { useHistory, Link } from 'react-router-dom'
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
 
-const SmallCard = ({item, handleItemDelete, owner= false, showViewMoreButton = true,}) => {
-    // console.log(item)
-    // console.log(item.purchaseDate)
+import { useHistory, Link } from 'react-router-dom'
+import {useState} from 'react'
+import OrderModal from '../modals/OrderModal'
+
+const OrderCard = ({item, session, orderedBy}) => {
+    const [showModal, setShowModal] = useState(false)
+    console.log('item info: ====>', item)
     const history = useHistory()
     return (
         <>
@@ -39,37 +41,28 @@ const SmallCard = ({item, handleItemDelete, owner= false, showViewMoreButton = t
                                     }
                                 </span>{' '}
                             </h3>
-                            <p className='alert alert-info'>{`${item.content.substring(0,200)}...`}</p>
-                            <p className='alert alert-warning'>{item.condition}</p>
                             <p className= 'card-text'>{item.size}</p>
-                            <p className= 'card-text'>{item.location}</p>
-                            <p className="card-text">
-                                Last Owner Bought It On {new Date(item.purchaseDate).toLocaleDateString()}
-                            </p>
-                            <div className='d-flex justify-content-between h4'>
-                                { showViewMoreButton && (
-                                    <button 
-                                        onClick={() => history.push(`/item/${item._id}`)} 
-                                        className="btn btn-primary">
-                                        Show more...
-                                    </button>
-                                )
-                                }
-                                {
-                                    owner && (
-                                        <>
-                                        <Link to={`/item/edit/${item._id}`}>
-                                        <EditOutlined className='text-warning'/>
-                                        </Link>
+                            <p className='alert alert-info'>{item.location}</p>
+                            <p className= 'card-text'>{`${item.content.substring(0,200)}...`}</p>
+                            <p className='card-text'>{item.condition}</p>
 
-                                        <DeleteOutlined 
-                                            onClick={()=> handleItemDelete(item._id)}
-                                            className='text-danger'
-                                        />
-                                        </>
-                                    )
-                                }
+                            {showModal && (
+                                <OrderModal
+                                session={session}
+                                orderedBy={orderedBy}
+                                showModal={showModal}
+                                setShowModal={setShowModal}
+                                />
+                            )}
+                            <div className="d-flex justify-content-between h4">
+                                <button
+                                    onClick={() => setShowModal(!showModal)}
+                                    className="btn btn-primary"
+                                >
+                                    Show Payment info
+                                </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -78,4 +71,4 @@ const SmallCard = ({item, handleItemDelete, owner= false, showViewMoreButton = t
     )
 }
 
-export default SmallCard
+export default OrderCard

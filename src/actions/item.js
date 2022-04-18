@@ -18,14 +18,6 @@ export const allItems= async (token, data)=>{
     })
 }
 
-export const diffDays = (from, to) => {
-    const day = 24*60*60*1000
-    const start = new Date(from)
-    const end = new Date(to)
-    const difference = Math.round(Math.abs((start-end)/day))
-    return difference
-}
-
 export const sellerItems= async (token)=>{
     return await axios.get(`${process.env.REACT_APP_API}/seller-items`, {
         headers:{
@@ -49,6 +41,14 @@ export const readItem= async (itemId)=>{
 
 export const updateItem= async (token, data, itemId)=>{
     return await axios.put(`${process.env.REACT_APP_API}/update-item/${itemId}`, data, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+export const getUserOrders= async (token) =>{
+    return await axios.get(`${process.env.REACT_APP_API}/user-orders`, {
         headers:{
             Authorization: `Bearer ${token}`
         }

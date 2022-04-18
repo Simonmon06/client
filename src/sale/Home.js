@@ -1,7 +1,8 @@
-// import {userSelector, useSelector, useStore} from 'react-redux'
 import { allItems } from "../actions/item";
 import {useState, useEffect} from 'react'
 import SmallCard from "../components/cards/SmallCard";
+import SearchBar from "../components/SearchBar";
+
 const Home = () => {
     const [items, setItems] = useState([])
     const loadAllItems = async() =>{
@@ -17,9 +18,12 @@ const Home = () => {
     return (
         <>
             <div className="container-fluid bg-secondary p-5 text-center">
-                <h1>All Items</h1>
+                <h1>Welcome to Gundam Model Shop</h1>
             </div>
-
+            <div className='col'>
+                <br/>
+                <SearchBar/>
+            </div>
             <div className="container-fluid">
                 <br/>
                 {

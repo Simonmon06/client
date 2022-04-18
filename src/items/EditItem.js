@@ -12,16 +12,25 @@ const EditItem = ({match}) =>{
     const {token} = auth
     const [image, setImage] = useState('')
     const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
+    // const [values, setValues] = useState({
+    //     title: '',
+    //     content: '',
+    //     location: '',
+    //     price: '',
+    //     from: '',
+    //     to: '',
+    //     condition: '',
+    // })
     const [values, setValues] = useState({
         title: '',
         content: '',
         location: '',
+        size: '',
         price: '',
-        from: '',
-        to: '',
+        purchaseDate: '',
         condition: '',
     })
-    const {title, content, location, price, from, to, condition} = values
+    const {title, content, location, price, condition, size, purchaseDate} = values
     const loadSellerItem = async() =>{
         let res = await readItem(match.params.itemId)
         // console.log(res)
@@ -29,6 +38,7 @@ const EditItem = ({match}) =>{
         setPreview(`${process.env.REACT_APP_API}/item/image/${res.data._id}`)
     }
     useEffect(() => {
+        console.log('useEffect is called')
         loadSellerItem()
     }, [])
 
@@ -36,12 +46,12 @@ const EditItem = ({match}) =>{
         event.preventDefault()
         let itemData = new FormData()
         itemData.append('title', title)
+        itemData.append('size', size)
         itemData.append('content', content)
         itemData.append('location', location)
         itemData.append('title', title)
         itemData.append('price', price)
-        itemData.append('from', from)
-        itemData.append('to', to)
+        itemData.append('purchaseDate', purchaseDate)
         itemData.append('condition', condition)
         image && itemData.append('image', image)
 
