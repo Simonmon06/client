@@ -6,18 +6,23 @@ import {Link} from 'react-router-dom'
 const DashboardNav = () => {
     const active = window.location.pathname // get current pathname
     return (
-        <ul className="nav nav-tabs">
+        <ul class="nav nav-pills nav-fill">
             <li className='nav-item'>
                 <Link 
                     className={`nav-link ${active === '/dashboard' && 'active'}`} 
-                    to='/dashboard'> Your orders</Link>
+                    to='/dashboard'> 
+                    Your orders
+                </Link>
             </li>
             <li className='nav-item'>
-                <Link 
+            <Link 
                     className={`nav-link ${active === '/dashboard/seller' && 'active'}`} 
-                    to='/dashboard/seller'>Your models in the market</Link>
-            </li>
+                    to='/dashboard/seller'>
+                    Your models in the market
+                </Link>
+            </li>   
         </ul>
+
     )
 }
 
