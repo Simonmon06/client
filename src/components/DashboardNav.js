@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const DashboardNav = () => {
     const active = window.location.pathname // get current pathname
     return (
-        <ul class="nav nav-pills nav-fill">
+        <ul className="nav nav-pills nav-fill">
             <li className='nav-item'>
                 <Link 
                     className={`nav-link ${active === '/dashboard' && 'active'}`} 
@@ -16,11 +16,18 @@ const DashboardNav = () => {
             </li>
             <li className='nav-item'>
             <Link 
+                    className={`nav-link ${active === '/dashboard/post' && 'active'}`} 
+                    to='/dashboard/post'>
+                    Your Posts
+                </Link>
+            </li>
+            <li className='nav-item'>
+            <Link 
                     className={`nav-link ${active === '/dashboard/seller' && 'active'}`} 
                     to='/dashboard/seller'>
                     Your models in the market
                 </Link>
-            </li>   
+            </li>
         </ul>
 
     )

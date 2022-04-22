@@ -28,7 +28,7 @@ const Home = () => {
                 <br/>
                 {
                     items.map(item => (
-                        <SmallCard key={item._id} item={item}/>
+                        <SmallCard key={item._id} item={item}  owner={false} showViewMoreButton/>
                     ))
                 }
             </div>

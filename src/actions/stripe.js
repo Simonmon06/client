@@ -1,7 +1,7 @@
 import axios from 'axios'
 // post method 3 para 1. url, 2. data(optional) 3. header
-export const createConnectAccount = async(token) =>{
-    return await axios.post(`${process.env.REACT_APP_API}/create-connect-account`, {}, {
+export const openCreateStripeLink = async(token) =>{
+    return await axios.post(`${process.env.REACT_APP_API}/create-stripe-account`, {}, {
         headers: {
             Authorization: `Bearer ${token}`
         }

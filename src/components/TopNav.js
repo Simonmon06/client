@@ -28,10 +28,16 @@ const TopNav = () =>{
             <Link className='nav-link' to='/dashboard' >Dashboard</Link>
           </>
       )}
-      {
+      {/* {
         auth !== null && (
           <>
             <Link className='nav-link' to='/profile' >Profile</Link>
+          </>
+      )} */}
+      {
+        auth !== null && (
+          <>
+            <Link className='nav-link' to='/posts' >Posts</Link>
           </>
       )}
 

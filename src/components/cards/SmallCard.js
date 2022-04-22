@@ -2,7 +2,7 @@ import { currencyFormatter } from '../../actions/utils'
 import { useHistory, Link } from 'react-router-dom'
 import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
 
-const SmallCard = ({item, handleItemDelete, owner= false, showViewMoreButton = true,}) => {
+const SmallCard = ({item, handleItemDelete, owner, showViewMoreButton,}) => {
     // console.log(item)
     // console.log(item.purchaseDate)
     const history = useHistory()

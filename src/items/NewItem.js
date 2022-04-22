@@ -29,7 +29,6 @@ const NewItem = () => {
         itemData.append('content', content)
         itemData.append('location', location)
         itemData.append('size', size)
-        itemData.append('title', title)
         itemData.append('price', price)
         itemData.append('purchaseDate', purchaseDate)
         itemData.append('condition', condition)

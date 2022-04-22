@@ -4,7 +4,7 @@ import ConnectNav from "../components/ConnectNav"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import {HomeOutlined} from '@ant-design/icons'
-import { createConnectAccount } from "../actions/stripe"
+import { openCreateStripeLink } from "../actions/stripe"
 import { sellerItems, deleteItem } from '../actions/item'
 import {toast} from 'react-toastify'
 import SmallCard from '../components/cards/SmallCard'
@@ -24,7 +24,7 @@ const DashboardSeller = () => {
     const handleClick =  async() => {
         setLoading(true)
         try{
-            let res = await createConnectAccount(auth.token)
+            let res = await openCreateStripeLink(auth.token)
             console.log(res) // get loginin link
             window.location.href = res.data//
         } catch (err){
