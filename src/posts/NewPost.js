@@ -45,8 +45,8 @@ const NewPost = () =>{
     }
     return (
         <>
-        <div className="container-fluid bg-secondary p-5 text-center">
-        <h2> Add Item</h2>
+        <div className="container-fluid jumbotron">
+        <h1 style={{color: 'white'}}> Add Item</h1>
         </div>
 
         <div className="container-fluid">

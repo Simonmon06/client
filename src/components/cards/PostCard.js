@@ -38,7 +38,11 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
                                 numOfLikes > 1 ? `${numOfLikes} likes`:  `${numOfLikes} like`
     
                             }</h5>
-                            
+                                                    {
+                            post && post.comments && post.comments.map(comment => (
+                                <p key={comment._id} className='alert alert-primary'>{`${comment.postedBy.name}: ${comment.text}`}</p>
+                            ))
+                        }
                             <div className='d-flex justify-content-between h4'>
 
                                 { showViewMoreButton && (
@@ -51,13 +55,10 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
                                 }
                                 {
                                     owner && (
-                                        <>
-
                                         <DeleteOutlined 
                                             onClick={()=> handlePostDelete(post._id)}
                                             className='text-danger'
                                         />
-                                        </>
                                     )
                                 }
                             </div>

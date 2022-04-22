@@ -22,6 +22,9 @@ import StripeSuccess from './stripe/StripeSuccess'
 import StripeCancel from './stripe/StripeCancel'
 import NewPost from './posts/NewPost'
 import ViewPost from './posts/ViewPost'
+
+import SearchUserHome from './searchUserHome/SearchUserHome'
+import SearchUserResult from './components/SearchUserResult'
 function App() {
   return (
     <BrowserRouter>
@@ -39,12 +42,14 @@ function App() {
         <PrivateRoute exact path='/items/new' component={NewItem}/>
         <PrivateRoute exact path='/posts/new' component={NewPost}/>
         <PrivateRoute exact path='/post/:postId' component={ViewPost}/>
+        <PrivateRoute exact path='/searchUser' component={SearchUserHome}></PrivateRoute>
         <PrivateRoute exact path='/stripe/callback' component={StripeCallback}/>
         <PrivateRoute exact path='/item/edit/:itemId' component={EditItem}/>
         <Route exact path='/item/:itemId' component={ViewItem}/>
         <PrivateRoute exact path='/stripe/success/:itemId' component={StripeSuccess}/>
         <PrivateRoute exact path='/stripe/cancel' component={StripeCancel}/>
         <Route exact path='/search-result' component={SearchResult}/>
+        <PrivateRoute exact path='/search-user-result' component={SearchUserResult}></PrivateRoute>
         
       </Switch>
     </BrowserRouter>

@@ -7,8 +7,7 @@ import {HomeOutlined} from '@ant-design/icons'
 import { openCreateStripeLink } from "../actions/stripe"
 import { sellerItems, deleteItem } from '../actions/item'
 import {toast} from 'react-toastify'
-import SmallCard from '../components/cards/SmallCard'
-
+import ItemCard from "../components/cards/ItemCard";
 
 const DashboardSeller = () => {
     const {auth}  = useSelector(state => ({...state}))
@@ -55,15 +54,16 @@ const DashboardSeller = () => {
                             <Link to='/items/new' className='btn btn-primary'>+ Add New</Link>
                         </div>
                     </div>
-
+                    <div className='row row-cols-1 row-cols-md-3'>
                     {/* <div className='row'> */}
-                    {items.map(item => <SmallCard 
+                    {items.map(item => <ItemCard 
                             key={item._id} 
                             item={item} 
                             showViewMoreButton={false} 
                             handleItemDelete={handleItemDelete}
                             owner={true}/>)}
                     {/* </div> */}
+                    </div>
                 </div>
         </>
         )
@@ -94,7 +94,7 @@ const DashboardSeller = () => {
     }
     return (
         <>
-            <div className= "container-fluid bg-secondary p-5">
+            <div className= "container-fluid jumbotron">
                 <ConnectNav/>
             </div>
             <div className='container-fluid p-4'>

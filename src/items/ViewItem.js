@@ -44,8 +44,8 @@ const ViewItem = ({match, history}) =>{
     };
     return (
         <>
-        <div className="container-fluid bg-secondary p-5 text-center">
-            <h1>{item.title}</h1>
+        <div className="container-fluid jumbotron">
+            <h1 style={{color: 'white'}}>{item.title}</h1>
         </div>
         <div className="container-fluid">
             <div className='row'>

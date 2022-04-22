@@ -23,8 +23,8 @@ const Register = ({history}) => {
     }
     return (
         <div>
-            <div className='container-fluid bg-secondary p-5 text-center'>
-                <h1>Register</h1>
+            <div className='container-fluid jumbotron'>
+                <h1 style={{color: 'white'}}>Register</h1>
             </div>
             
             <div className='container'>

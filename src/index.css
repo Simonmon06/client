@@ -5,14 +5,14 @@
 .ant-modal-footer {
     display: none;
 }
-  
 
-.ant-select-selection-placeholder,
-  .ant-select-selection-item {
-    margin-top: 5px;
+.jumbotron {
+  padding: 70px 30px 70px 30px;
+  margin: 38px auto 0px;
+  background: dimgray;
 }
-  
-.btn-square {
-    border-radius: 0;
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
-  

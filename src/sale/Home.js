@@ -1,6 +1,6 @@
 import { allItems } from "../actions/item";
 import {useState, useEffect} from 'react'
-import SmallCard from "../components/cards/SmallCard";
+import ItemCard from "../components/cards/ItemCard";
 import SearchBar from "../components/SearchBar";
 
 const Home = () => {
@@ -17,8 +17,8 @@ const Home = () => {
 
     return (
         <>
-            <div className="container-fluid bg-secondary p-5 text-center">
-                <h1>Welcome to Gundam Model Shop</h1>
+            <div className="container-fluid jumbotron">
+                <h1 style={{color: 'white'}}>Welcome to Gundam Model Shop</h1>
             </div>
             <div className='col'>
                 <br/>
@@ -26,11 +26,13 @@ const Home = () => {
             </div>
             <div className="container-fluid">
                 <br/>
+                <div className='row row-cols-1 row-cols-md-3'>
                 {
                     items.map(item => (
-                        <SmallCard key={item._id} item={item}  owner={false} showViewMoreButton/>
+                        <ItemCard key={item._id} item={item}  owner={false} showViewMoreButton/>
                     ))
                 }
+                </div>
             </div>
 
         </>

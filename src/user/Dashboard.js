@@ -18,7 +18,7 @@ const Dashboard = () => {
     }
     return (
         <>
-            <div className= "container-fluid bg-secondary p-5">
+            <div className= "container-fluid jumbotron">
                 <ConnectNav/>
             </div>
             <div className='container-fluid p-4'>

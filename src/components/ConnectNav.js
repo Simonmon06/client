@@ -48,13 +48,13 @@ const ConnectNav = () => {
             <div className="card text-center" style={{width: '18rem'}}>
                 <div className='card-body'>
                     <h5 className='card-title'>{user.name} </h5>
-                    <p class="card-text">{`Account is created ${moment(user.createdAt).fromNow()}`}</p>
+                    <p className="card-text">{`Account is created ${moment(user.createdAt).fromNow()}`}</p>
                 </div>
 
                 {
                     hasStripeAccount && 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
                             {showBalance && balance.pending.map((balance, index)=>(
                                         <span key={index} className="lead">
                                             {currencyFormatter(balance)} avaliable
@@ -71,33 +71,7 @@ const ConnectNav = () => {
                 }
             </div>
         </div>
-        // <div className="d-flex justify-content-around">
-        //     <Card>
-        //         <Meta 
-        //             avatar={<Avatar>{user.name[0]}</Avatar>} 
-        //             title={user.name} 
-        //             description={`Joined ${moment(user.createdAt).fromNow()}`} />
-        //     </Card>
-        //     {
-        //         auth && auth.user && auth.user.stripe_seller && auth.user.stripe_seller.charges_enabled && 
-        //         <>
-        //             <Ribbon text='Avaliable' color='grey'>
-        //                 <Card className='bg-light pt-1'>
-        //                     {balance && balance.pending && balance.pending.map((balance, index)=>(
-        //                         <span key={index} className="lead">
-        //                             {currencyFormatter(balance)}
-        //                         </span>
-        //                     ))}
-        //                 </Card>
-        //             </Ribbon>
-        //             <Ribbon text='Payouts' color='silver'>
-        //                 <Card className='bg-light pointer' onClick={handlePayoutSettings}>
-        //                     <SettingOutlined className='h5 pt-2'/>
-        //                 </Card>
-        //             </Ribbon>
-        //         </>
-        //     }
-        // </div>
+
 
     )
 }

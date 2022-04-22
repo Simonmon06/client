@@ -14,8 +14,8 @@ const PostHome = () => {
 
     return (
         <>
-            <div className="container-fluid bg-secondary p-5 text-center">
-                <h1>All Posts</h1>
+            <div className="container-fluid jumbotron">
+                <h1 style={{color: 'white'}}>All Posts</h1>
             </div>
             <div className="container-fluid">
                 <br/>

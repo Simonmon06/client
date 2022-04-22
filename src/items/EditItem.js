@@ -12,15 +12,7 @@ const EditItem = ({match}) =>{
     const {token} = auth
     const [image, setImage] = useState('')
     const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
-    // const [values, setValues] = useState({
-    //     title: '',
-    //     content: '',
-    //     location: '',
-    //     price: '',
-    //     from: '',
-    //     to: '',
-    //     condition: '',
-    // })
+
     const [values, setValues] = useState({
         title: '',
         content: '',
@@ -77,8 +69,8 @@ const EditItem = ({match}) =>{
     }
     return(
         <>
-            <div className="container-fluid bg-secondary p-5 text-center">
-                <h2> Edit Item</h2>
+            <div className="container-fluid jumbotron">
+                <h1 style={{color: 'white'}}> Edit Item</h1>
             </div>
             
             <div className="container-fluid">

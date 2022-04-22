@@ -18,42 +18,63 @@ const TopNav = () =>{
     history.push('/login')
   }
   return (
-      <div className= "nav bg-light d-flex justify-content-between">
-      <Link className='nav-link' to='/' >
-        Home
-      </Link>
-      {
-        auth !== null && (
-          <>
-            <Link className='nav-link' to='/dashboard' >Dashboard</Link>
-          </>
-      )}
-      {/* {
-        auth !== null && (
-          <>
-            <Link className='nav-link' to='/profile' >Profile</Link>
-          </>
-      )} */}
-      {
-        auth !== null && (
-          <>
-            <Link className='nav-link' to='/posts' >Posts</Link>
-          </>
-      )}
+      <div className= "nav navbar-dark d-flex navbar-expand-sm  bg-dark fixed-top">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav"> 
 
-      {auth !== null && (
-         <a className='nav-link pointer' onClick={logout}>Logout</a>
-      )}
-
-      {
-        auth === null && (
-          <>
-            <Link className='nav-link' to='/login' >Login</Link>
-            <Link className='nav-link' to='/register' >Register</Link>
-          </>
-      )}
-     
+                {auth !== null ? (
+                  <>
+                    <li className="nav-item active">
+                      <Link className='nav-link' to='/' >
+                        Home
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className='nav-link' to='/posts' >
+                        Posts
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className='nav-link' to='/dashboard' >
+                        DashBoard
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className='nav-link' to='/searchUser' >
+                        Search
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className='nav-link pointer' onClick={logout} >
+                        Logout
+                      </Link>
+                    </li>
+                  </>
+                ): 
+                (
+                  <>
+                    <li className="nav-item active">
+                      <Link className='nav-link' to='/' >
+                        Home
+                      </Link>
+                    </li>
+                    <li className="nav-item float-right">
+                        <Link className='nav-link' to='/login' >
+                        Login
+                        </Link>
+                    </li>
+                    <li className="nav-item ">
+                        <Link className='nav-link float-right' to='/register' >
+                        Register
+                        </Link>
+                    </li>
+                  </>
+                )}
+            
+          </ul>
+      </div>
     </div>
+         
   )
 }
 

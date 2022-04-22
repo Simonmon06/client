@@ -70,8 +70,8 @@ const ViewPost = ({match, history}) =>{
     } 
     return (
         <>
-        <div className="container-fluid bg-secondary p-5 text-center">
-            <h1>{post.title}</h1>
+        <div className="container-fluid jumbotron">
+            <h1 style={{color: 'white'}}>{post.title}</h1>
         </div>
         <div className="container-fluid ">
             <div className='row no-gutters'>
@@ -94,7 +94,7 @@ const ViewPost = ({match, history}) =>{
                     <div>
                         {
                             post && post.comments && post.comments.map(comment => (
-                                <p className='alert alert-info'>{`${comment.postedBy.name}: ${comment.text}`}</p>
+                                <p key={comment._id} className='alert alert-primary'>{`${comment.postedBy.name}: ${comment.text}`}</p>
                             ))
                         }
                         <form onSubmit={handleCommentSubmit}>

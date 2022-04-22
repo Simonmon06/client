@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import {DatePicker, Select} from 'antd'
+import {Select} from 'antd'
 import {SearchOutlined} from '@ant-design/icons'
-import moment from 'moment'
 import { useHistory } from 'react-router-dom'
 
 const {Option} = Select

@@ -53,7 +53,17 @@ const ItemEditForm = (props) => {
                     className='form-control m-2' 
                     value={price}
                 />
-
+                <Select onChange={value => setValues({...values, size: value})} 
+                        className='w-100 m-2' 
+                        size='large'
+                        placeholder='Size'
+                        >
+                    <Option key={1} value="Perfect Grade 1/60">Perfect Grade 1/60</Option>
+                    <Option key={2} value="Master Grade 1/100">Master Grade 1/100</Option>
+                    <Option key={3} value="Real Grade 1/144">Real Grade 1/144</Option>
+                    <Option key={4} value="High Grade 1/144">High Grade 1/144</Option>
+                    <Option key={5} value="BB/SD">BB/SD</Option>
+                </Select>
                 <input 
                     type='text' 
                     name= 'location' 
