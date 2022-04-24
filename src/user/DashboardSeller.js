@@ -74,19 +74,11 @@ const DashboardSeller = () => {
             <div className="row">
                 <div className='col-md-6 offset-md-3 text-center'>
                     <div className='p-5 pointer'>
-                        <HomeOutlined className='h1'/>
-                        <h4>Setup payouts to post your items</h4>
-                        <p className='lead'>MEAN partners with stripe to transfer earnings to your bank account.</p>
+                        <h4>Setup your Strip account and credit card info</h4>
                         <button disabled={loading} onClick={handleClick} className='btn btn-primary mb-3'>
                             { loading ? 'Processing...' : 'Setup Payouts'}
                         </button>
-                        <p className='text-muted'>
-                            <small>
-                                You'll be redirected to Stripe to complete the onboading process
-                            </small>
-                        </p>
-                    </div>
-                    
+                    </div>  
                 </div>
             </div>
         </div>

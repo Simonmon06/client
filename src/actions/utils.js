@@ -4,3 +4,10 @@ export const currencyFormatter= (data)=>{
         currency: data.currency
     })
 }
+
+export const currencyFormatterUserInfo= (data)=>{
+    return (data.amount/100).toLocaleString(data.currency,{
+        style: 'currency',
+        currency: data.currency
+    })
+}

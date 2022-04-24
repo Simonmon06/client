@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
-import {DatePicker, Select} from 'antd'
+import {Select} from 'antd'
 import { readItem, updateItem } from '../actions/item'
 import ItemEditForm from '../components/forms/ItemEditForm'
 

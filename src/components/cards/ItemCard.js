@@ -28,7 +28,11 @@ const ItemCard = ({item, handleItemDelete, owner, showViewMoreButton,}) => {
                 <div className="card-body">
                     <h3 className="card-title">{item.title}</h3>
                     <p className="card-text">{`${item.content.substring(0,200)}...`}</p>
-                    <p className="card-text">{item.condition}</p>
+                    <p className="card-text" >{item.condition}</p>
+                    {item.paid && (
+                         <p className="card-text" style={{color: 'red'}}>Sold out</p>
+                    )}
+                    
                     <span className='float-right text-primary'>
                                             {
                                                 currencyFormatter({

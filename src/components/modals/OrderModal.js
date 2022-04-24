@@ -1,21 +1,38 @@
-import { Modal } from "antd";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-const OrderModal = ({ session, orderedBy, showModal, setShowModal }) => {
+import { useState } from "react";
+const OrderModal = ({ session, orderedBy }) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <Modal
-      visible={showModal}
-      title="Order payment info"
-      onCancel={() => setShowModal(!showModal)}
-    >
-      <p>Payment intent: {session.payment_intent}</p>
-      <p>Payment status: {session.payment_status}</p>
-      <p>
+    <>
+    <Button variant="primary" onClick={handleShow}>
+      Show Payment Information
+    </Button>
+
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header >
+        <Modal.Title>Payment Information</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Payment intent: {session.payment_intent}</Modal.Body>
+      <Modal.Body>Payment status: {session.payment_status}</Modal.Body>
+      <Modal.Body>
         Amount total: {session.currency.toUpperCase()}{" "}
         {session.amount_total / 100}
-      </p>
-      <p>Stripe customer id: {session.customer}</p>
-      <p>Customer: {orderedBy.name}</p>
+      </Modal.Body>
+      <Modal.Body>Stripe customer id: {session.customer}</Modal.Body>
+      <Modal.Body>Customer: {orderedBy.name}</Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={handleClose}>
+          OK
+        </Button>
+      </Modal.Footer>
     </Modal>
+  </>
+
+
   );
 };
 

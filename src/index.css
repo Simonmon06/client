@@ -9,7 +9,7 @@
 .jumbotron {
   padding: 70px 30px 70px 30px;
   margin: 38px auto 0px;
-  background: dimgray;
+  background: rgb(0, 175, 250);
 }
 .wrapper {
   display: grid;

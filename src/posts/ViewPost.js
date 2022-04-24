@@ -23,13 +23,13 @@ const ViewPost = ({match, history}) =>{
         // console.log('res.data',res.data)
         // console.log('res.data.thumbs.length',res.data.thumbs.length)
         setNumOfLikes(res.data.thumbs.length)
-        setHasLiked(checkLike(res.data.thumbs))
+        setHasLiked(liked(res.data.thumbs))
         setImage(`${process.env.REACT_APP_API}/post/image/${res.data._id}`)
 
     }
 
-    const checkLike = (likes) => {
-        return likes.indexOf(auth.user._id) !== -1    
+    const liked = (likeArray) => {
+        return likeArray.indexOf(auth.user._id) !== -1    
     }
     const handleLike = async () => {
         let likeRequest = hasLiked ? updateUnlike : updateLike

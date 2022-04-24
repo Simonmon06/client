@@ -9,7 +9,6 @@ import { createItem } from '../actions/item'
 const NewItem = () => {
     const {auth} = useSelector(state => ({...state}))
     const {token} = auth
-    const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
     const [values, setValues] = useState({
         title: '',
         content: '',
@@ -20,6 +19,7 @@ const NewItem = () => {
         purchaseDate: '',
         condition: '',
     })
+    const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
     const {title, content, location, image,size, price, purchaseDate, condition} = values
     const handleSubmit = async (event) =>{
         event.preventDefault();

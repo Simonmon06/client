@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import {Card, Avatar, Badge} from 'antd'
 import moment from 'moment'
 import {getAccountBalance, payoutSetting} from '../actions/stripe'
-import { currencyFormatter } from '../actions/utils';
+import { currencyFormatterUserInfo } from '../actions/utils';
 import {SettingOutlined} from '@ant-design/icons'
 import {toast} from 'react-toastify'
 
@@ -57,7 +57,7 @@ const ConnectNav = () => {
                         <li className="list-group-item">
                             {showBalance && balance.pending.map((balance, index)=>(
                                         <span key={index} className="lead">
-                                            {currencyFormatter(balance)} avaliable
+                                            {currencyFormatterUserInfo(balance)} earned
                                         </span>
                             ))}
                         </li>

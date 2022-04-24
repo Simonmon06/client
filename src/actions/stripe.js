@@ -1,5 +1,8 @@
 import axios from 'axios'
 // post method 3 para 1. url, 2. data(optional) 3. header
+// all we need to do is to make a post request to this end point with this token, then verify the token if the
+// token is valid we can extract the user id and based on the id we can find that user. when we make request to the stripe,
+// we can send that id to the user database and then we update the user status 
 export const openCreateStripeLink = async(token) =>{
     return await axios.post(`${process.env.REACT_APP_API}/create-stripe-account`, {}, {
         headers: {
@@ -50,6 +53,3 @@ export const stripeSuccess= async (token, itemId)=>{
         }
     })
 }
-// all we need to do is to make a post request to this end point with this token, then verify the token if the
-// token is valid we can extract the user id and based on the id we can find that user. when we make request to the stripe,
-// we can send that id to the user database and then we update the user status 

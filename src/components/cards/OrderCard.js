@@ -42,8 +42,8 @@ const OrderCard = ({item, session, orderedBy}) => {
                                 </span>{' '}
                             </h3>
                             <p className= 'card-text'>{item.size}</p>
-                            <p className='alert alert-info'>{item.location}</p>
-                            <p className= 'card-text'>{`${item.content.substring(0,200)}...`}</p>
+                            <p className='alert alert-info'>{`${item.content.substring(0,200)}...`}</p>
+                            <p className= 'card-text'>{item.location}</p>
                             <p className='card-text'>{item.condition}</p>
 
                             {showModal && (
@@ -55,12 +55,7 @@ const OrderCard = ({item, session, orderedBy}) => {
                                 />
                             )}
                             <div className="d-flex justify-content-between h4">
-                                <button
-                                    onClick={() => setShowModal(!showModal)}
-                                    className="btn btn-primary"
-                                >
-                                    Show Payment info
-                                </button>
+                                <OrderModal session={session} orderedBy={orderedBy}/>
                             </div>
 
                         </div>
