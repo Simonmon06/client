@@ -11,6 +11,14 @@ export const openCreateStripeLink = async(token) =>{
     })
 }
 
+export const getAccountBalance = async(token) =>{
+    return axios.post(`${process.env.REACT_APP_API}/get-account-balance`, {}, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
 export const getAccountStatus = async(token) =>{
     return axios.post(`${process.env.REACT_APP_API}/get-account-status`, {}, {
         headers:{
@@ -19,14 +27,6 @@ export const getAccountStatus = async(token) =>{
     })
 }
 
-
-export const getAccountBalance = async(token) =>{
-    return axios.post(`${process.env.REACT_APP_API}/get-account-balance`, {}, {
-        headers:{
-            Authorization: `Bearer ${token}`
-        }
-    })
-}
 
 
 

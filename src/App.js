@@ -1,9 +1,9 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import TopNav from './components/TopNav'
+import TopNavBar from './components/navbars/TopNavBar'
 import PrivateRoute from './components/PrivateRoute'
-import SearchResult from './components/SearchResult'
+import SearchResult from './components/search/SearchResult'
 import Profile from './user/Profile'
 import PostHome from './postHome/PostHome'
 
@@ -24,11 +24,11 @@ import NewPost from './posts/NewPost'
 import ViewPost from './posts/ViewPost'
 
 import SearchUserHome from './searchUserHome/SearchUserHome'
-import SearchUserResult from './components/SearchUserResult'
+import SearchUserResult from './components/search/SearchUserResult'
 function App() {
   return (
     <BrowserRouter>
-      <TopNav/>
+      <TopNavBar/>
       <ToastContainer position="top-center"/>
       <Switch>
         <Route exact path='/' component={Home}/>

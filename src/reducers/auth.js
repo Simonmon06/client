@@ -2,7 +2,7 @@ let userState
 // get auth token from local storage
 if(window.localStorage.getItem('auth')){
   userState = JSON.parse(window.localStorage.getItem('auth'))
-  console.log('user&& token: ', userState)
+  // console.log('user&& token: ', userState)
 }else{
   userState = null
 }

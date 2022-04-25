@@ -1,7 +1,7 @@
 import { allItems } from "../actions/item";
 import {useState, useEffect} from 'react'
 import ItemCard from "../components/cards/ItemCard";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/search/SearchBar";
 
 const Home = () => {
     const [items, setItems] = useState([])

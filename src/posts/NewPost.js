@@ -6,7 +6,7 @@ import { createPost } from '../actions/post'
 const NewPost = () =>{
     const {auth} = useSelector(state => ({...state}))
     const {token} = auth
-    const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
+    const [preview, setPreview] = useState('https://via.placeholder.com/300.JPEG?text=No_Image')
     const [values, setValues] = useState({
         title: '',
         content: '',
@@ -63,7 +63,6 @@ const NewPost = () =>{
                 </div>
                 <div className='col-md-2'>
                     <img src={preview} alt='preview_image' className='img img-fluid m-2'></img>
-                    <pre>{JSON.stringify(values, null, 4)}</pre>
                 </div>
             </div>
         </div>

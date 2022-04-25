@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
 
-const TopNav = () =>{
+const TopNavBar = () =>{
   // cant use history here cuz in app.js login is a route but not topnav
   const {auth} = useSelector((state) => ({...state}))
   const dispatch = useDispatch()
@@ -78,4 +78,4 @@ const TopNav = () =>{
   )
 }
 
-export default TopNav;
+export default TopNavBar;

@@ -11,7 +11,7 @@ const EditItem = ({match}) =>{
     const {auth} = useSelector(state => ({...state}))
     const {token} = auth
     const [image, setImage] = useState('')
-    const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
+    const [preview, setPreview] = useState('https://via.placeholder.com/800x500.png?text=NO+PICTURE')
 
     const [values, setValues] = useState({
         title: '',
@@ -87,7 +87,6 @@ const EditItem = ({match}) =>{
                     </div>
                     <div className='col-md-2'>
                         <img src={preview} alt='preview_image' className='img img-fluid m-2'></img>
-                        <pre>{JSON.stringify(values, null, 4)}</pre>
                     </div>
                 </div>
             </div>

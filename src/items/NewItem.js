@@ -19,7 +19,7 @@ const NewItem = () => {
         purchaseDate: '',
         condition: '',
     })
-    const [preview, setPreview] = useState('https://via.placeholder.com/100x100.png?text=PREVIEW')
+    const [preview, setPreview] = useState('https://via.placeholder.com/300.JPEG?text=No_Image')
     const {title, content, location, image,size, price, purchaseDate, condition} = values
     const handleSubmit = async (event) =>{
         event.preventDefault();
@@ -76,7 +76,6 @@ const NewItem = () => {
                     </div>
                     <div className='col-md-2'>
                         <img src={preview} alt='preview_image' className='img img-fluid m-2'></img>
-                        <pre>{JSON.stringify(values, null, 4)}</pre>
                     </div>
                 </div>
             </div>

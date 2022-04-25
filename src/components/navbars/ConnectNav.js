@@ -1,18 +1,11 @@
-// Create another nav for stripe connted merchants
-// This is where you will show their balance 
-// And access to stripe dashboard
-
+// show user and stripe info in user dashboard
 import {useEffect, useState} from 'react'
 import { useSelector } from "react-redux";
-import {Card, Avatar, Badge} from 'antd'
 import moment from 'moment'
-import {getAccountBalance, payoutSetting} from '../actions/stripe'
-import { currencyFormatterUserInfo } from '../actions/utils';
-import {SettingOutlined} from '@ant-design/icons'
+import {getAccountBalance, payoutSetting} from '../../actions/stripe'
+import { currencyFormatterUserInfo } from '../../actions/utils';
 import {toast} from 'react-toastify'
 
-const {Meta} = Card
-const {Ribbon} = Badge
 const ConnectNav = () => {
     const [loading, setLoading] = useState(false)
     const [balance, setBalance] = useState(0)
@@ -31,7 +24,6 @@ const ConnectNav = () => {
             console.log('Res for payout setting link', res)
             // tried a lot of time in server side, but redirect to a url does not work in stripe. so open a new window here.
             // no need to redirect anymore
-            // window.location.href = res.data.url
             window.open(res.data.url)
             setLoading(false)
         } catch (err) {

@@ -1,4 +1,4 @@
-import SeachUserBar from "../components/SearchUserBar"
+import SeachUserBar from "../components/search/SearchUserBar"
 const SearchUserHome = () => {
 
     return (

@@ -1,6 +1,6 @@
 import { currencyFormatter } from '../../actions/utils'
 import { useHistory, Link } from 'react-router-dom'
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
+
 
 const ItemCard = ({item, handleItemDelete, owner, showViewMoreButton,}) => {
     const history = useHistory()

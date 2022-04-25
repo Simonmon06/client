@@ -25,6 +25,7 @@ export const getUserPosts= async (token)=>{
     })
 }
 
+
 export const deletePost= async (token, postId)=>{
     return await axios.delete(`${process.env.REACT_APP_API}/delete-post/${postId}`, {
         headers:{
@@ -32,7 +33,6 @@ export const deletePost= async (token, postId)=>{
         }
     })
 }
-
 
 export const updateLike= async (token, postId)=>{
     console.log('token', token)
@@ -42,6 +42,7 @@ export const updateLike= async (token, postId)=>{
         }
     })
 }
+
 
 export const updateUnlike= async (token, postId)=>{
     return await axios.put(`${process.env.REACT_APP_API}/post/unlike/${postId}`, null, {

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import {useState, useEffect} from 'react'
 import queryString from 'query-string'
 import SeachUserBar from "./SearchUserBar"
-import { searchUsers } from "../actions/user"
+import { searchUsers } from "../../actions/user"
 import moment from 'moment'
 
 const SearchUserResult =() =>{
