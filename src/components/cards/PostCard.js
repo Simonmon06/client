@@ -31,6 +31,7 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
 
                     <div className='col-md-8'>
                         <div className='card-body'>
+                            <h3 className="card-title">{post.title}</h3>
                             <p className='alert alert-info'>{post.content}</p>
                             <i>Posted by {post.postedBy && post.postedBy.name}</i>
                             <h5>{

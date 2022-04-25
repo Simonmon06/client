@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <>
             <div className="container-fluid jumbotron">
-                <h1 style={{color: 'white'}}>Welcome to Gundam Model Shop</h1>
+                <h1 style={{color: 'white'}}>Welcome to Gundam Model Shop && Community</h1>
             </div>
             <div className='col'>
                 <br/>

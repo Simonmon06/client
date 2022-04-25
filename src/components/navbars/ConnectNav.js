@@ -2,9 +2,8 @@
 import {useEffect, useState} from 'react'
 import { useSelector } from "react-redux";
 import moment from 'moment'
-import {getAccountBalance, payoutSetting} from '../../actions/stripe'
+import {getAccountBalance} from '../../actions/stripe'
 import { currencyFormatterUserInfo } from '../../actions/utils';
-import {toast} from 'react-toastify'
 
 const ConnectNav = () => {
     const [loading, setLoading] = useState(false)
@@ -17,22 +16,7 @@ const ConnectNav = () => {
             setBalance(res.data)
         })
     }, [])
-    const handlePayoutSettings = async () => {
-        setLoading(true)
-        try {
-            const res = await payoutSetting(token)
-            console.log('Res for payout setting link', res)
-            // tried a lot of time in server side, but redirect to a url does not work in stripe. so open a new window here.
-            // no need to redirect anymore
-            window.open(res.data.url)
-            setLoading(false)
-        } catch (err) {
-            console.log(err)
-            setLoading(false)
-            toast.error('Unable to access settings. Please try again.')
-        }
-
-    }
+    
     const hasStripeAccount = auth && auth.user && auth.user.stripe_seller && auth.user.stripe_seller.charges_enabled
     const showBalance = balance && balance.pending 
     return (
@@ -54,12 +38,6 @@ const ConnectNav = () => {
                             ))}
                         </li>
                     </ul>
-                }
-                {
-                    hasStripeAccount &&
-                    <div className='card-body'>
-                        <i className="bi bi-gear-wide-connected h1 pointer" onClick={handlePayoutSettings}></i>
-                    </div>
                 }
             </div>
         </div>

@@ -3,7 +3,7 @@ import moment from 'moment'
 const {Option} = Select;
 const ItemEditForm = (props) => {
     const {values, setValues, handleChange, handleImageChange, handleSubmit} = props
-    const {title, content, price, location, purchaseDate, condition} = values;
+    const {title, content, price, location, purchaseDate, condition, size} = values;
     console.log(condition)
     return (
         <form onSubmit={handleSubmit}>
@@ -57,6 +57,7 @@ const ItemEditForm = (props) => {
                         className='w-100 m-2' 
                         size='large'
                         placeholder='Size'
+                        value={size}
                         >
                     <Option key={1} value="Perfect Grade 1/60">Perfect Grade 1/60</Option>
                     <Option key={2} value="Master Grade 1/100">Master Grade 1/100</Option>

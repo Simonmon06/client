@@ -30,13 +30,6 @@ export const getAccountStatus = async(token) =>{
 
 
 
-export const payoutSetting= async (token)=>{
-    return await axios.post(`${process.env.REACT_APP_API}/payout-setting`, {}, {
-        headers:{
-            Authorization: `Bearer ${token}`
-        }
-    })
-}
 
 export const getSessionId= async (token, itemId)=>{
     return await axios.post(`${process.env.REACT_APP_API}/stripe-session-id`, {itemId}, {
