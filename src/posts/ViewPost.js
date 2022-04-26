@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
-import { getOnePost, updateUnlike, updateLike, updateComment, updateUnComment } from '../actions/post'
-const ViewPost = ({match, history}) =>{
+import { getOnePost, updateUnlike, updateLike, updateComment } from '../actions/post'
+const ViewPost = ({match}) =>{
     const {auth} = useSelector(state =>({...state}))
     const [post, setPost] = useState([])
     const [image, setImage] = useState('')

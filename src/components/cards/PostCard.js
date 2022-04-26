@@ -1,8 +1,4 @@
 import { useSelector } from 'react-redux'
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
-import { useState } from 'react'
-import {toast} from 'react-toastify'
-import {updateLike, updateUnlike} from '../../actions/post'
 import { useHistory } from 'react-router-dom'
 const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreButton= true}) => {
     const history = useHistory()
@@ -11,7 +7,7 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
     const numOfLikes = post.thumbs.length
     return (
         <>
-            <div className='card mb-3 '>
+            <div className='card mb-3 text-white bg-dark '>
                 <div className='row no-gutters'>
                     <div className='col-md-4'>
                         { hasImage ? (
@@ -30,18 +26,18 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
                     </div>
 
                     <div className='col-md-8'>
-                        <div className='card-body'>
-                            <h3 className="card-title">{post.title}</h3>
-                            <p className='alert alert-info'>{post.content}</p>
+                        <div className='card-body '>
+                            <h3 className="card-title text-white">{post.title}</h3>
+                            <p className='alert alert-dark '>{post.content}</p>
                             <i>Posted by {post.postedBy && post.postedBy.name}</i>
-                            <h5>{
+                            <div className='card-text h3'>{
                                 
                                 numOfLikes > 1 ? `${numOfLikes} likes`:  `${numOfLikes} like`
     
-                            }</h5>
+                            }</div>
                                                     {
                             post && post.comments && post.comments.map(comment => (
-                                <p key={comment._id} className='alert alert-primary'>{`${comment.postedBy.name}: ${comment.text}`}</p>
+                                <p key={comment._id} className='alert alert-dark'>{`${comment.postedBy.name}: ${comment.text}`}</p>
                             ))
                         }
                             <div className='d-flex justify-content-between h4'>
@@ -49,16 +45,16 @@ const PostCard = ({post, handlePostDelete= f => f, owner= false, showViewMoreBut
                                 { showViewMoreButton && (
                                     <button 
                                         onClick={() => history.push(`/post/${post._id}`)} 
-                                        className="btn btn-primary">
-                                        Show more...
+                                        className="btn btn-secondary float-right">
+                                        Details
                                     </button>
                                 )
                                 }
                                 {
                                     owner && (
-                                        <DeleteOutlined 
+                                        <a 
                                             onClick={()=> handlePostDelete(post._id)}
-                                            className='text-danger'
+                                            className='bi bi-trash-fill h3'
                                         />
                                     )
                                 }

@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import TopNavBar from './components/navbars/TopNavBar'
 import PrivateRoute from './components/PrivateRoute'
 import SearchResult from './components/search/SearchResult'
-import Profile from './user/Profile'
 import PostHome from './postHome/PostHome'
 
 import Home from "./sale/Home";

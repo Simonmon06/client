@@ -1,6 +1,6 @@
 import { currencyFormatter } from '../../actions/utils'
 
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import {useState} from 'react'
 import OrderModal from '../modals/OrderModal'
 
@@ -32,7 +32,7 @@ const OrderCard = ({item, session, orderedBy}) => {
                         <div className='card-body'>
                             <h3 className="card-title">
                                 {item.title}{' '}
-                                <span className='float-right text-primary'>
+                                <span className='float-right text-primary '>
                                     {
                                         currencyFormatter({
                                             amount: item.price,

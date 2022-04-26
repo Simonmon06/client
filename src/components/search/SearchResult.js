@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux"
 import {useState, useEffect} from 'react'
 import queryString from 'query-string'
 import SearchBar from "./SearchBar"
@@ -6,8 +5,6 @@ import { searchItems } from "../../actions/item"
 
 import ItemCard from "../cards/ItemCard"
 const SearchResult =() =>{
-    const [searchTitle, setSearchTitle] = useState('')
-    const [searchCondition, setSearchCondition] = useState('')
     const [searchResults, setSearchResults] = useState('')
 
     useEffect(() => {

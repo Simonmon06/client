@@ -1,11 +1,9 @@
 import {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
-import {Select} from 'antd'
 import { readItem, updateItem } from '../actions/item'
 import ItemEditForm from '../components/forms/ItemEditForm'
 
-const {Option} = Select
 
 const EditItem = ({match}) =>{
     const {auth} = useSelector(state => ({...state}))

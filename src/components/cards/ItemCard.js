@@ -7,7 +7,7 @@ const ItemCard = ({item, handleItemDelete, owner, showViewMoreButton,}) => {
     const hasImg = item.image && item.image.contentType
     return (
         <div className='col mb-4'>
-        <div className="card">
+        <div className="card text-white bg-dark">
             <div className='row-8'>
             {
                 hasImg ?
@@ -25,27 +25,28 @@ const ItemCard = ({item, handleItemDelete, owner, showViewMoreButton,}) => {
             }
             </div>
             <div className='row-4'>
-                <div className="card-body">
-                    <h3 className="card-title">{item.title}</h3>
+                <div className="card-body ">
+                    <h3 className="card-title text-white">{item.title}</h3>
                     <p className="card-text">{`${item.content.substring(0,200)}...`}</p>
                     <p className="card-text" >{item.condition}</p>
                     {item.paid && (
                          <p className="card-text" style={{color: 'red'}}>Sold out</p>
                     )}
                     
-                    <span className='float-right text-primary'>
+                    <p className='card-text'>
                                             {
                                                 currencyFormatter({
                                                     amount: item.price,
                                                     currency: 'cad'
                                                 })
                                             }
-                    </span>
+                    </p>
                     { showViewMoreButton && (
                         <button 
+                            
                             onClick={() => history.push(`/item/${item._id}`)} 
-                            className="btn btn-primary">
-                            Show more...
+                            className="btn btn-secondary float-right">
+                            Details
                         </button>
                     )}
                     {

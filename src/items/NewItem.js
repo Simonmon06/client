@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
 import ItemCreateForm from '../components/forms/ItemCreateForm'
 import { createItem } from '../actions/item'
-// import AlgoliaPlaces from 'algolia-places-react'
-//  try to use react-google-places-autocomplete if still have time
 const NewItem = () => {
     const {auth} = useSelector(state => ({...state}))
     const {token} = auth

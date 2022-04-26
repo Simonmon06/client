@@ -6,7 +6,6 @@ import {getAccountBalance} from '../../actions/stripe'
 import { currencyFormatterUserInfo } from '../../actions/utils';
 
 const ConnectNav = () => {
-    const [loading, setLoading] = useState(false)
     const [balance, setBalance] = useState(0)
     const {auth} = useSelector(state => ({...state}))
     const {user, token} = auth

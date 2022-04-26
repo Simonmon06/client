@@ -7,7 +7,6 @@ import moment from 'moment'
 
 const SearchUserResult =() =>{
     const {auth} = useSelector((state) => ({...state}))
-    const [searchName, setSearchName] = useState('')
     const [searchResults, setSearchResults] = useState('')
 
     useEffect(() => {

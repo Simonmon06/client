@@ -3,7 +3,6 @@ import DashboardNav from "../components/navbars/DashboardNav"
 import ConnectNav from "../components/navbars/ConnectNav"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
-import {HomeOutlined} from '@ant-design/icons'
 import { openCreateStripeLink } from "../actions/stripe"
 import { sellerItems, deleteItem } from '../actions/item'
 import {toast} from 'react-toastify'
